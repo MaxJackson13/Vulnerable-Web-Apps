@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Injection</title>
+        <link rel="stylesheet" href="../public/style.css" type="text/css">
+    </head>
+    <body>
+      <h1 class="search-form-header">Welcome</h1>
+      <form action="/" method="post" class="search-form" autocomplete="off">
+          <input class="search-input" id="query-input" type="text" name="name" placeholder="Enter Your Name..."/>
+          <button class="search-button" type="submit" role="button">Submit</button>
+      </form>
+      <h3 class="search-query">Thank you: <%=name%></h3>
+    </body>
+</html>
