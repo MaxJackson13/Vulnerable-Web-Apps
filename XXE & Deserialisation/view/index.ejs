@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Injection</title>
+        <script src="../app.js" defer></script>
+        <style>
+           body {
+            font-family: Arial, sans-serif;
+          } 
+
+           .form-container {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+          } 
+
+          h4 {
+            text-align: center;
+            margin: 5px 0px 0px 0px;
+            font-weight: 200;
+          }
+
+        </style>
+    </head>
+    <body>
+      <h1 class="search-form-header" style="text-align: center; margin-top: 2rem;">Stock checker</h1>
+        <h3 style="text-align: center;">Search for a product or upload a file</h3>
+      <div class="form-container">
+        <form action="/" method="post" class="search-form" autocomplete="off" id="form">
+          <label for="query-input" style="margin-right: 7px; font-weight:bold;">Search for a product</label>
+          <input class="search-input" id="query-input" type="text" name="item" placeholder="" style="min-width: 50%;"/>
+          <button class="search-button" type="submit" role="button">Submit</button> 
+        </form>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <div>
+          <h3>Upload Products (XML)</h3>
+          <form encType="multipart/form-data" method="post" action="/">
+              <div class="input-group mb-3">
+                  <div class="products-file">
+                      <input type="file" name="products" class="file-input" id="inputfile"accept=".xml" required>
+                      <br>
+                      <input class="button" type="submit" name="submit" value="Upload">
+                  </div>
+              </div>
+          </form>
+        </div>
+        <div>
+          <h3 style="margin-bottom: 0px;">Sample XML</h3>
+<pre style="margin-top: 0px;"><xmp style="margin-top: 0px;">
+<products>
+    <product>
+        <name>Xbox One</name>
+    </product>
+    <product>
+        <name>Shower</name>
+    </product>
+    <product>
+      <name>Cat</name>
+  </product>
+</products>
+</xmp></pre> 
+         </div>
+      </div> 
+      <% if (products) { %>
+      <h3 style="text-align:center; margin-top: 0px; margin-bottom: 5px;">We have</h3>
+        <% products.forEach(function(product){ %>
+            <h4>
+                <%- ~~(Math.random()*1000) %> <%= product %>'s in stock
+            </h4>
+      <% })} %>
+    </body>
+</html>
