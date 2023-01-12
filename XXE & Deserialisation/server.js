@@ -6,7 +6,7 @@ const ejs = require('ejs')                          /* templating engine for dyn
 
 const app = express()
 
-app.use(express.static('public'));                  /* middleware for serving static (client-side) files from public folder 
+app.use(express.static('public'));                  /* middleware for serving static (client-side) files from public folder */ 
 app.use(fileUpload())
 app.use(express.json())                             /* parse json in request body */
 app.set('view engine', 'ejs')
