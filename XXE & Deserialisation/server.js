@@ -17,7 +17,6 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
     /* check if .xml file uploaded */
-    
     if (req.files && req.files.products && req.files.products.mimetype == 'text/xml') {
         var xmlFile = req.files.products.data.toString('utf-8')
         var parsedXml = libxmljs.parseXmlString(xmlFile, { noent:true, noblanks:true })
@@ -28,11 +27,9 @@ app.post('/', (req, res) => {
     
     else if (req.body.item) {
         var product = serialize.unserialize(req.body).item
-
         try {
             var product = product.split()
             return res.render('index', { products: product })
-
         } 
         catch (error) {
             console.log(error)
