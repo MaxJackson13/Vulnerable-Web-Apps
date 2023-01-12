@@ -1,7 +1,7 @@
 const ipAddr = require('ipaddr.js')
 const axios = require('axios')
 
-async function axiosGet (req, url) {
+async function axiosGet(req, url) {
     try {
         const response = await axios.get(url)
         req.health = { 
