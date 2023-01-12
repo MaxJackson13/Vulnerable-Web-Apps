@@ -15,17 +15,14 @@ app.get('/', (req, res) => {
     res.render('index', { products: false })
 })
 
-app.post('/', (req, res) => {
-    /* check if .xml file uploaded */
-    if (req.files && req.files.products && req.files.products.mimetype == 'text/xml') {
+app.post('/', (req, res) => {                                                                       
+    if (req.files && req.files.products && req.files.products.mimetype == 'text/xml') {                 /* check if .xml file uploaded */
         var xmlFile = req.files.products.data.toString('utf-8')
         var parsedXml = libxmljs.parseXmlString(xmlFile, { noent:true, noblanks:true })
         var products = parsedXml.root().childNodes().map(product => product.childNodes()[0].text())
         return res.render('index', { products: products })
     }
-    /* otherwise check for json body and parse the item out */
-    
-    else if (req.body.item) {
+    else if (req.body.item) {                                                   /* otherwise check for json body and parse the item out */
         var product = serialize.unserialize(req.body).item
         try {
             var product = product.split()
