@@ -15,7 +15,7 @@ let html = ejs.render('<body><h1 class="fourohfour">Sorry, <%= name %>, the page
 ```
 since the path is stripped of the leading, `/`, the attacker can visit an arbitrary non-existent url and it will be injected directly into the template string.
 
-The app is secured by rendering an `.ejs` file, <strong>then</strong> passing the user conntrolled input as a parameter, e.g. 
+The app is secured by rendering an `.ejs` file, <strong>then</strong> passing the user controlled input as a parameter, e.g. 
 ```
 res.render('404.ejs', { name: name, path: path })
 ```
