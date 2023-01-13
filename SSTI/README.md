@@ -18,7 +18,8 @@ since the path is stripped of the leading, `/`, the attacker can visit an arbitr
 The app is secured by rendering an `.ejs` file, <strong>then</strong> passing the user conntrolled input as a parameter, e.g. 
 ```
 res.render('404.ejs', { name: name, path: path })
+```
   
 For a suitable payload, checkout `payloadallthethings` ssti. It may help to proxy the request through Burp.
-```
+
 </details>
