@@ -7,7 +7,7 @@ Can you figure them out?
 </details>
 
 # Search by search-bar
-<img src="../images/xxe.png" style="transform:scale(0.7);">
+<img src="../images/xxe.png">
 
 # Search by file-upload
 <img src="../images/xml-upload.png">
