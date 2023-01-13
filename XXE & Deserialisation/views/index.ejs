@@ -3,21 +3,71 @@
     <head>
         <title>Javascript Injection</title>
         <script src="../app.js" defer></script>
+
         <style>
-           body {
-            font-family: Arial, sans-serif;
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          
+          body {
+            font-family: Verdana, sans-serif;
+            background: linear-gradient(to bottom, #F5F5F5, #E8E8E8);
+            min-height: 100vh;
           } 
 
            .form-container {
             text-align: center;
             margin-top: 50px;
             margin-bottom: 50px;
+            transform: scale(1.2);
           } 
 
           h4 {
             text-align: center;
             margin: 5px 0px 0px 0px;
             font-weight: 200;
+          }
+
+          .products-file {
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+          }
+
+          .sample-xml {
+            border: 2px solid lightgray; 
+            box-shadow: 2px 2px 2px gray; 
+            padding: 1rem; 
+            margin-left: 5px; 
+            /* transform: scale(1.2); 
+            transform-origin: top left; */
+          }
+
+          .upload-xml {
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
+            border: 2px solid lightgray; 
+            box-shadow: 2px 2px 2px gray; 
+            padding: 1rem; 
+            margin-right: 5px; 
+            /* transform: scale(1.2); 
+            transform-origin: top right;  */
+            gap: 20px; 
+          }
+
+          .button, input[type=file]::file-selector-button {
+            content: "Browse";
+            display: inline-block;
+            background: white;
+            color: black;
+            border: 1px solid black;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 2px;
           }
 
         </style>
@@ -28,24 +78,22 @@
       <div class="form-container">
         <form action="/" method="post" class="search-form" autocomplete="off" id="form">
           <label for="query-input" style="margin-right: 7px; font-weight:bold;">Search for a product</label>
-          <input class="search-input" id="query-input" type="text" name="item" placeholder="" style="min-width: 50%;"/>
-          <button class="search-button" type="submit" role="button">Submit</button> 
+          <input class="search-input" id="query-input" type="text" name="item" placeholder="anything..." style="min-width: 50%; padding: 2px; border: 1px solid black;"/>
+          <button class="button" id="search-button" type="submit" role="button">Submit</button> 
         </form>
       </div>
-      <div style="display: flex; justify-content: center;">
-        <div>
-          <h3>Upload Products (XML)</h3>
+      <div class="container" style="display: flex; justify-content: center; transform: scale(1.2);">
+        <div class="upload-xml">
+          <h3 style = "text-align: center;">Upload Products (XML)</h3>
           <form encType="multipart/form-data" method="post" action="/">
-              <div class="input-group mb-3">
-                  <div class="products-file">
-                      <input type="file" name="products" class="file-input" id="inputfile"accept=".xml" required>
-                      <br>
-                      <input class="button" type="submit" name="submit" value="Upload">
-                  </div>
+              <div class="products-file">
+                  <input type="file" name="products" class="file-button" id="inputfile" accept=".xml" required>
+                  <br>
+                  <input class="button" type="submit" name="submit" value="Upload">
               </div>
           </form>
         </div>
-        <div>
+        <div class="sample-xml">
           <h3 style="margin-bottom: 0px;">Sample XML</h3>
 <pre style="margin-top: 0px;"><xmp style="margin-top: 0px;">
 <products>
@@ -62,6 +110,7 @@
 </xmp></pre> 
          </div>
       </div> 
+      <div class="stock-data" style="margin-top:40px;">
       <% if (products) { %>
       <h3 style="text-align:center; margin-top: 0px; margin-bottom: 5px;">We have</h3>
         <% products.forEach(function(product){ %>
@@ -69,5 +118,6 @@
                 <%- ~~(Math.random()*1000) %> <%= product %>'s in stock
             </h4>
       <% })} %>
+      </div>
     </body>
 </html>
