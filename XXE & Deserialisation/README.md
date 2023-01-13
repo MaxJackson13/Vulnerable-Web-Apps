@@ -2,7 +2,8 @@ This web app has two vulnerabilities. Insecure deserialization will allow remote
 
 Can you figure them out?
 <details>
-Hint, payloadallthethings XXE and node-serialize.
+    <summary>Hint</summary>
+'payloadallthethings' XXE and node-serialize.
 </details>
 <img src="../images/xxe.png" style="transform:scale(0.7);">
 <img src="../images/xml-upload.png">
