@@ -1,21 +1,11 @@
-/*select form & html elements as well assubmit button*/
-
-var originalDoc = document.querySelector('html')
-const form = document.getElementById('form')
-const button = document.querySelector('.search-button');
-
-/* listen for click event on the submit button */
+var form = document.getElementById('form')
+var button = document.getElementById('search-button');
 
 button.addEventListener('click', event => {
   event.preventDefault()
 
-  /* extract submitted formdata*/
-  
-  const formData = new FormData(form)
-  const product = formData.get('item')
-  
-  /*construct json post request */
-  
+  var formData = new FormData(form)
+  var product = formData.get('item')
   fetch('http://localhost:5000/', {
     method: 'POST',
     headers: {
@@ -24,13 +14,12 @@ button.addEventListener('click', event => {
     body: JSON.stringify({item: `${product}`})
   })
   .then((response) => response.text())
-  
-  /*parse the  response and replace the webpage html with the fecthed html */
-  
-  .then((html) => {
+  .then((html => {
     var parser = new DOMParser()
     var newDoc = parser.parseFromString(html, 'text/html')
-    originalDoc.innerHTML = newDoc.querySelector('html').innerHTML 
-  })
+    var container = document.querySelector('.stock-data')
+    var stockData = newDoc.querySelector('.stock-data').innerHTML
+    container.innerHTML = stockData
+  }))
   .catch(err => console.error('Failed to fetch page: ', err))
 })
