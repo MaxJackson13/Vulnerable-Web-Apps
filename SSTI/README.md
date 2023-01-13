@@ -1,4 +1,10 @@
-This webapp is vulnerable to SSTI as user input is directly concatenated into a string which is subsequently rendered. This gives the user the opportunity to inject arbitrary javascript which will be executed on the server.
+# Index Page
+<img src="../images/ssti.png">
+
+# 404 Page
+<img src="../images/ssti-404.png">
+
+This web app is vulnerable to SSTI as user input is directly concatenated into a string which is subsequently rendered. This gives the user the opportunity to inject arbitrary javascript which will be executed on the server.
 
 The vulnerable code is
 
