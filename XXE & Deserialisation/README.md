@@ -5,5 +5,9 @@ Can you figure them out?
     <summary>Hint</summary>
 'payloadallthethings' XXE and node-serialize.
 </details>
+
+### Search by search-bar
 <img src="../images/xxe.png" style="transform:scale(0.7);">
+
+### Search by file-upload
 <img src="../images/xml-upload.png">
