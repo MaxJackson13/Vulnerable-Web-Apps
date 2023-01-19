@@ -34,7 +34,7 @@ However, many programming languages offer a native capability for serializing ob
 
 Unfortunately, the features of these native deserialization mechanisms can be repurposed for malicious effect when operating on untrusted data. Attacks against deserializers have been found to allow denial-of-service, access control, and remote code execution (RCE) attacks.
 
-[Read More](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html) "OWASP Insecure Deserialization")
+[Read More](https://cheatsheetseries.owasp.org/cheatsheets/Deserialization_Cheat_Sheet.html "OWASP Insecure Deserialization")
 
 ## SSRF
 
