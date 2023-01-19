@@ -48,3 +48,5 @@ async function fetchUrl(req, res, next) {
     }  
     next() 
 }
+
+module.exports = fetchURL
